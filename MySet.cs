@@ -35,13 +35,13 @@ namespace ConsoleSet
             list.Remove(item);
         }
 
-        public ISet<T> Intersect(ISet<T> S)
+        public ISet<T> Intersect(ISet<T> S) //IT WORKS
         {
-            MySet<T> temp = new MySet<T>();
+            List<T> temp = new List<T>();
 
             foreach (var item in list)
             {
-                foreach (var secondItem in list)
+                foreach (var secondItem in S)
                 {
                     if (item.Equals(secondItem))
                     {
@@ -49,7 +49,9 @@ namespace ConsoleSet
                     }
                 }
             }
-            return temp as MySet<T>;
+            MySet<T> newTemp = new MySet<T>();
+            newTemp.AddRange(temp.Distinct().ToList());
+            return newTemp;
         }
 
         public ISet<T> Difference(ISet<T> S)

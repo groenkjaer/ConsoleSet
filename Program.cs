@@ -15,7 +15,7 @@ namespace ConsoleSet
             MySet<int> ms1 = new MySet<int>();
             MySet<int> ms2 = new MySet<int>();
 
-            for (int i = 0; i < 50; i++)
+            for (int i = 0; i < 5; i++)
             {
                 ms1.Add(rng.Next(20, 51));
                 ms2.Add(rng.Next(20, 51));
@@ -24,15 +24,16 @@ namespace ConsoleSet
             PrintList(ms1);
             PrintList(ms2);
 
-            MySet<int> wpjdaw = new MySet<int>();
-            wpjdaw.AddRange(ms1.Intersect(ms2));
-            PrintList(wpjdaw);
+            MySet<int> test = new MySet<int>();
+            test.AddRange(ms1.Intersect(ms2));
+            
+            PrintList(test);
             
         }
 
         private static void PrintList(MySet<int> nogetandet)
         {
-            nogetandet.Sort(); //BROKE
+            nogetandet.Sort();
             foreach (var item in nogetandet)
             {
                 Console.Write(" " + item);
